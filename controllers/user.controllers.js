@@ -14,7 +14,9 @@ async function registerNewUser(req, res) {
         jobTitle: job_title,
         password: password
     })
-    return res.status(201).json({ message: "user created successfully, now you can login", id: result._id })
+
+    const file = req.file
+    return res.status(201).json({ message: "user created successfully, now you can login", id: result._id, file })
 }
 
 async function loginUser(req, res) {
