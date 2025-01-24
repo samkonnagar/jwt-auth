@@ -2,7 +2,7 @@ const express = require('express')
 const userRouter = require('./routes/user.routes.js')
 const { connectWithMongoDB } = require('./db/db.connect.js')
 const cookieParser = require('cookie-parser')
-
+const path = require('path');
 
 const port = 4000
 const app = express()
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'images')));
 
 
 // User routes

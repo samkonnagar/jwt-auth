@@ -21,6 +21,10 @@ const userSchema = new Schema({
     jobTitle: {
         type: String
     },
+    userImage: {
+        type: String,
+        unique: true
+    },
     password: {
         type: String,
         required: true
