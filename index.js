@@ -3,11 +3,11 @@ const userRouter = require('./routes/user.routes.js')
 const { connectWithMongoDB } = require('./db/db.connect.js')
 const cookieParser = require('cookie-parser')
 const path = require('path');
+require('dotenv').config();
 
-const port = 4000
+const PORT = process.env.PORT || 8000
 const app = express()
-const URL = "mongodb://127.0.0.1:27017/user-manager"
-connectWithMongoDB(URL);
+connectWithMongoDB(process.env.MONGODB_URL);
 
 
 // Routes
@@ -28,6 +28,6 @@ app.use('/api', userRouter)
 
 
 // Server
-app.listen(port, () => {
-    console.log(`Server started on: http://localhost:${port} Successfully`);
+app.listen(PORT, () => {
+    console.log(`Server started on: http://localhost:${PORT} Successfully`);
 })

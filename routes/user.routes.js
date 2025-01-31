@@ -12,7 +12,7 @@ router.route('/login')
     .post(loginUser)
 
 
-    // secure route by Authentication
+// secure route by Authentication
 router.route("/home").get(ckeckForAuthentication, handleHome)
 
 
